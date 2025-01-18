@@ -1,0 +1,58 @@
+<div class="sticky top-16">
+  <div class="bg-white w-56 rounded-md">
+    <img
+      src="1726632725032.jpeg"
+      alt="Banner.png"
+      class="rounded-t-md h-16 w-full cursor-pointer"
+    />
+    <img
+      src="WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
+      alt="myPhoto.png"
+      class="w-16 h-16 rounded-full -my-5 mx-3 cursor-pointer"
+    />
+    <div class="my-7 mx-3 hover:underline cursor-pointer">
+      <h1 class="text-xl font-bold">Mohamed Osama</h1>
+      <p class="text-sm text-[#464646]">
+        Junior-Front-End developer | GDSC instructor
+      </p>
+      <p class="text-[#9e9e9e] text-sm">6th of October, Cairo</p>
+      <hr class="h-1 my-2" />
+    </div>
+    <div>
+      <div class="flex-col mx-4 gap-3">
+        @for (details of Details; track details.Title) {
+        <div
+          class="flex items-center justify-between cursor-pointer hover:underline"
+        >
+          <h1 class="text-sm">{{ details.Title }}</h1>
+          <h1 class="text-blue-400 font-bold">{{ details.Number }}</h1>
+        </div>
+        }
+      </div>
+      <hr class="h-1 my-2 mx-4" />
+    </div>
+    <div class="mx-4 cursor-pointer py-2">
+      <p class="text-sm text-[#9e9e9e]">Get hired faster with premium</p>
+      <div class="flex items-center gap-2">
+        <div class="w-3 h-3 bg-yellow-500"></div>
+        <h1
+          class="text-sm font-semibold hover:text-blue-500 transition-all duration-300"
+        >
+          Try for EGB0
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white my-2 rounded-md flex flex-col gap-2 py-1">
+    <div class="mx-4">
+      <h1 class="text-md cursor-pointer hover:underline">Save items</h1>
+    </div>
+    <div class="mx-4">
+      <h1 class="text-md cursor-pointer hover:underline">Groups</h1>
+    </div>
+    <div class="mx-4">
+      <h1 class="text-md cursor-pointer hover:underline">Events</h1>
+    </div>
+  </div>
+</div>
