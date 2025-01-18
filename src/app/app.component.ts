@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../Components/navbar/navbar.component';
 
 @Component({
@@ -11,4 +11,12 @@ import { NavbarComponent } from '../Components/navbar/navbar.component';
 })
 export class AppComponent {
   title = 'linkedIn_Clone';
+  router = inject(Router);
+  public validateUrl() {
+    if (this.router.url == '/') {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
