@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
