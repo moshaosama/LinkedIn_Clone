@@ -1,4 +1,5 @@
-@if (getPostList()) { @for (postList of getPostList(); track postList.title) {
+@if (getPostList().length > 0) { @for (postList of getPostList(); track
+postList.title) {
 <div class="bg-white p-3 my-2 rounded-md">
   <div class="flex justify-between">
     <div class="flex items-center gap-2">
@@ -50,5 +51,7 @@
 </div>
 
 } } @else {
-<h1>Mosha</h1>
+<div class="flex justify-center my-3">
+  <h1 class="text-red-500 font-bold">No Posts Yet!</h1>
+</div>
 }
