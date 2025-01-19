@@ -23,3 +23,14 @@
     </button>
   </div>
 </div>
+<div class="grid grid-cols-3 text-center my-2">
+  @for (links of links; track links.name) {
+  <p class="text-sm my-1 mx-1 text-[#5c5c5c] hover:underline cursor-pointer">
+    {{ links.name }}
+  </p>
+  }
+  <div class="flex items-center w-80 justify-center gap-2">
+    <img src="download-removebg-preview.png" alt="" class="w-10" />
+    <p class="text-sm text-[#464646]">LinkedIn Corporation © 2025</p>
+  </div>
+</div>
