@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfileCardComponent } from '../../Components/profile-card/profile-card.component';
-import { AddPostComponent } from '../../Components/add-post/add-post.component';
+import { AddPostComponent } from '../../Components/post/add-post/add-post.component';
 import { RecommendationComponent } from '../../Components/recommendation/recommendation.component';
 
 @Component({
