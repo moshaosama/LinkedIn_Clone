@@ -1,14 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import {
-  effect,
-  inject,
-  Injectable,
-  signal,
-  WritableSignal,
-} from '@angular/core';
-import { map } from 'rxjs';
+import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 
 interface PostList {
+  id: number;
   title: string;
   likes: Number;
   comment: string;
@@ -20,6 +14,18 @@ interface PostList {
 export class PostService {
   httpClient = inject(HttpClient);
   PostsList: WritableSignal<PostList[]> = signal([]);
+  activeCreatePost = signal(false);
+  public ActiveCreatePost() {
+    if (this.activeCreatePost()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  ChangeStateactive() {
+    this.activeCreatePost.set(!this.activeCreatePost());
+  }
 
   constructor() {
     this.httpClient
@@ -39,6 +45,13 @@ export class PostService {
         next: (data) => {},
       });
 
+    window.location.reload();
+  }
+
+  public DeletePost(id: number) {
+    this.httpClient.delete(`http://localhost:8080/deletePost/${id}`).subscribe({
+      next: (val) => {},
+    });
     window.location.reload();
   }
 }

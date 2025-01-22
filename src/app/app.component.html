@@ -1,4 +1,6 @@
-@if (validateUrl()) {
+@if (ActiveCreatePost) {
+<app-form-post />
+} @if (validateUrl()) {
 <app-navbar />
 }
 <router-outlet />

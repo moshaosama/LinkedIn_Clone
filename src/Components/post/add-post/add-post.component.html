@@ -5,26 +5,18 @@
       alt="myPhoto.png"
       class="w-14 h-12 rounded-full object-cover -my-5 mx-3 cursor-pointer"
     />
-    <!-- <button
-        class="w-full p-3 text-start text-[#464646] border-[#ddd] border-[2px] rounded-full hover:bg-[#adadad] transition-all duration-300"
-      >
-        Start a Post
-      </button> -->
-    <form action="" [formGroup]="form" class="flex gap-4">
-      <input
-        type="text"
-        name="Title"
-        formControlName="Title"
-        placeholder="Start a post"
-        class="p-3 rounded-full w-full"
-      />
-      <button
-        class="bg-[#ddd] hover:bg-[#aaa] transition-all duration-200 p-1 rounded-md"
-        (click)="createPost()"
-      >
-        Submit
-      </button>
-    </form>
+
+    <button
+      class="w-full p-3 text-start text-[#464646] border-[#ddd] border-[2px] rounded-full hover:bg-[#adadad] transition-all duration-300"
+      (click)="onChangeStateActive()"
+    >
+      Start a Post
+    </button>
+    <button
+      class="bg-[#ddd] hover:bg-[#aaa] transition-all duration-200 p-1 rounded-md"
+    >
+      Submit
+    </button>
   </div>
   <div class="flex justify-between mx-12 max-sm:mx-0">
     <button

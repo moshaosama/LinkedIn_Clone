@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PostService } from '../../Services/post.service';
 
 @Component({
@@ -15,4 +15,7 @@ export class PostComponent {
     return this.postService.PostsList;
   }
 
+  public DeletePost(id: number) {
+    this.postService.DeletePost(id);
+  }
 }
