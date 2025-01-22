@@ -25,16 +25,28 @@ postList.title) {
     <h1>{{ postList.title }}</h1>
 
     <!-- This Comment Explan this Post -->
-    @if (postList.likes == 1) {
-    <div class="flex items-center gap-1">
-      <img
-        src="https://static-exp1.licdn.com/sc/h/2uxqgankkcxm505qn812vqyss"
-        alt="Like.png"
-        class="w-4 my-2"
-      />
-      <h1>{{ postList.likes }}</h1>
+    <div class="flex items-center justify-between">
+      <div>
+        @if (postList.likes == 1) {
+        <div class="flex items-center gap-1">
+          <img
+            src="https://static-exp1.licdn.com/sc/h/2uxqgankkcxm505qn812vqyss"
+            alt="Like.png"
+            class="w-4 my-2"
+          />
+          <h1>{{ postList.likes }}</h1>
+        </div>
+        }
+      </div>
+      <div class="flex items-center">
+        <p
+          class="text-sm text-[#949494] hover:underline cursor-pointer"
+          (click)="setActiveComment()"
+        >
+          {{ postList.comments.length }} Comments
+        </p>
+      </div>
     </div>
-    }
     <hr class="h-1 my-2" />
   </div>
   <div class="flex justify-between gap-2 mx-10">
@@ -60,6 +72,51 @@ postList.title) {
       Send
     </button>
   </div>
+  <div class="my-3">
+    <div class="flex justify-between items-center gap-2">
+      <div class="flex items-center gap-3">
+        <img
+          src="WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
+          alt="image.png"
+          class="w-10 h-10 object-cover rounded-full"
+        />
+        <form action="" [formGroup]="form">
+          <input
+            type="text"
+            name="Comment"
+            formControlName="Comment"
+            class="w-full h-10 rounded-full px-4 border-[#ddd] border-[3px]"
+            placeholder="Add a comment"
+          />
+        </form>
+      </div>
+      <div>
+        <button
+          class="bg-blue-500 hover:bg-blue-600 transition-all duration-300 p-2 rounded-full text-white font-bold w-fit"
+          (click)="CreateComment(postList.id)"
+        >
+          Comment
+        </button>
+      </div>
+    </div>
+  </div>
+  @if (ActiveComment()) {
+  <div class="my-3">
+    @for (comment of postList.comments; track comment.id) {
+    <div class="flex gap-3 my-10">
+      <img
+        src="WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
+        alt=""
+        class="w-10 h-10 rounded-full object-cover"
+      />
+      <div>
+        <h1 class="text-sm font-bold">{{ comment.userName }}</h1>
+        <p class="mx-5">{{ comment.text }}</p>
+      </div>
+    </div>
+    }
+  </div>
+  }
 </div>
 
 } } @else {

@@ -5,7 +5,11 @@ interface PostList {
   id: number;
   title: string;
   likes: Number;
-  comment: string;
+  comments: {
+    id: number;
+    userName: string;
+    text: string;
+  }[];
 }
 
 @Injectable({
@@ -22,7 +26,6 @@ export class PostService {
       return false;
     }
   }
-
   ChangeStateactive() {
     this.activeCreatePost.set(!this.activeCreatePost());
   }
@@ -34,6 +37,8 @@ export class PostService {
       .subscribe({
         next: (data) => this.PostsList.set(data),
       });
+
+    console.log(this.PostsList());
   }
 
   public createPost(Title: string) {
@@ -60,5 +65,19 @@ export class PostService {
       next: (val) => console.log(val),
     });
     window.location.reload();
+  }
+
+  public CreateComment(userName: string, Text: string, id: number) {
+    this.httpClient
+      .post('http://localhost:8080/createComment', {
+        userName: userName,
+        text: Text,
+        post: {
+          id: id,
+        },
+      })
+      .subscribe({
+        next: (val) => console.log(val),
+      });
   }
 }
