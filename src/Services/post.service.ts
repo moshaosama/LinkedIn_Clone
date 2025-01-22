@@ -54,4 +54,11 @@ export class PostService {
     });
     window.location.reload();
   }
+
+  public updatePost(id: number) {
+    this.httpClient.put(`http://localhost:8080/EditLike/${id}`, id).subscribe({
+      next: (val) => console.log(val),
+    });
+    window.location.reload();
+  }
 }

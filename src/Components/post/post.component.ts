@@ -18,4 +18,8 @@ export class PostComponent {
   public DeletePost(id: number) {
     this.postService.DeletePost(id);
   }
+
+  public updatePost(id: number) {
+    this.postService.updatePost(id);
+  }
 }

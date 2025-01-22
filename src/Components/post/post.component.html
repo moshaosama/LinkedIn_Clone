@@ -25,11 +25,22 @@ postList.title) {
     <h1>{{ postList.title }}</h1>
 
     <!-- This Comment Explan this Post -->
+    @if (postList.likes == 1) {
+    <div class="flex items-center gap-1">
+      <img
+        src="https://static-exp1.licdn.com/sc/h/2uxqgankkcxm505qn812vqyss"
+        alt="Like.png"
+        class="w-4 my-2"
+      />
+      <h1>{{ postList.likes }}</h1>
+    </div>
+    }
     <hr class="h-1 my-2" />
   </div>
   <div class="flex justify-between gap-2 mx-10">
     <button
       class="hover:bg-[#adadad] w-full rounded-xl p-1 transition-all duration-300"
+      (click)="updatePost(postList.id)"
     >
       Like: {{ postList.likes }}
     </button>
