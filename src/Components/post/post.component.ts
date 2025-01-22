@@ -38,4 +38,12 @@ export class PostComponent {
       id
     );
   }
+
+  public getPostById(id: number) {
+    this.postService.getPostById(id);
+  }
+
+  get PostById() {
+    return this.postService.postById();
+  }
 }

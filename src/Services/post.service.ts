@@ -18,6 +18,8 @@ interface PostList {
 export class PostService {
   httpClient = inject(HttpClient);
   PostsList: WritableSignal<PostList[]> = signal([]);
+  postById: WritableSignal<PostList | {}> = signal({});
+
   activeCreatePost = signal(false);
   public ActiveCreatePost() {
     if (this.activeCreatePost()) {
@@ -37,8 +39,6 @@ export class PostService {
       .subscribe({
         next: (data) => this.PostsList.set(data),
       });
-
-    console.log(this.PostsList());
   }
 
   public createPost(Title: string) {
@@ -79,5 +79,11 @@ export class PostService {
       .subscribe({
         next: (val) => console.log(val),
       });
+  }
+
+  public getPostById(id: number) {
+    this.httpClient.get(`http://localhost:8080/postById/${id}`).subscribe({
+      next: (val) => this.postById.set(val),
+    });
   }
 }
