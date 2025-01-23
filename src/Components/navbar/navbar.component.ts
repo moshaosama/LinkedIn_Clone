@@ -12,6 +12,7 @@ export class NavbarComponent {
   linksNavba = [
     {
       Title: 'Home',
+      href: 'HomePage',
     },
     {
       Title: 'My Network',

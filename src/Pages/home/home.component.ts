@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProfileCardComponent } from '../../Components/profile-card/profile-card.component';
+import { ProfileCardComponent } from '../../Components/Profile/profile-card/profile-card.component';
 import { AddPostComponent } from '../../Components/post/add-post/add-post.component';
 import { RecommendationComponent } from '../../Components/recommendation/recommendation.component';
 
