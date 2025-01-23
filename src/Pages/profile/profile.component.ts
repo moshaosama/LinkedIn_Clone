@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
 import { RecommendationComponent } from '../../Components/recommendation/recommendation.component';
 import { ProfileDetailComponent } from '../../Components/Profile/profile-detail/profile-detail.component';
-import { RouterModule } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
+import { AddAboutComponent } from '../../Components/About/add-about/add-about.component';
+import { AboutSectionComponent } from '../../Components/About/about-section/about-section.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [RecommendationComponent, ProfileDetailComponent, CommonModule],
+  imports: [
+    RecommendationComponent,
+    ProfileDetailComponent,
+    CommonModule,
+    AboutSectionComponent,
+    AddAboutComponent,
+  ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })

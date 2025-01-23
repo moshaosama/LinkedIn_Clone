@@ -23,7 +23,7 @@ export class FormPostComponent {
   public createPost() {
     this.postService.createPost(this.form.controls.Title.value!);
   }
-  ChangeStateactive() {
+  public ChangeStateactive() {
     this.postService.ChangeStateactive();
   }
 }

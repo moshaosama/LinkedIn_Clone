@@ -1,0 +1,20 @@
+<div class="bg-white my-2 rounded-md p-2">
+  <div class="flex items-center justify-between mx-5">
+    <div>
+      <h1 class="text-xl font-bold">About</h1>
+    </div>
+    <div>
+      <h1
+        class="hover:bg-[#ddd] p-1 transition-all duration-200 rounded-full cursor-pointer"
+        (click)="changeActiveFormAbout()"
+      >
+        X
+      </h1>
+    </div>
+  </div>
+  @for (AboutMessages of AboutMessages; track AboutMessages.id) {
+  <div class="text-[#666] mx-5 my-2">
+    <h1>{{ AboutMessages.about }}</h1>
+  </div>
+  }
+</div>
