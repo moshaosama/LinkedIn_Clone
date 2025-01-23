@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnChanges } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { PostService } from '../../../Services/post.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,9 +11,15 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormPostComponent {
   postService = inject(PostService);
+  @ViewChild('myInput') inputElement!: ElementRef;
   form = new FormGroup({
     Title: new FormControl(''),
   });
+
+  ngAfterViewInit(): void {
+    this.inputElement.nativeElement.focus();
+  }
+
   public createPost() {
     this.postService.createPost(this.form.controls.Title.value!);
   }

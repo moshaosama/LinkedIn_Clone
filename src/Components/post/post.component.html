@@ -100,7 +100,8 @@ postList.title) {
       </div>
     </div>
   </div>
-  <!-- @if (ActiveComment()) {
+  @if (ActiveComment()) { @for (comments of postList.comments; track
+  comments.id) {
   <div class="my-3">
     <div class="flex gap-3 my-10">
       <img
@@ -109,12 +110,12 @@ postList.title) {
         class="w-10 h-10 rounded-full object-cover"
       />
       <div>
-        <h1 class="text-sm font-bold">{{ PostById }}</h1>
-        
+        <h1 class="text-sm font-bold">{{ comments.userName }}</h1>
+        <p class="mx-3 text-[#474747]">{{ comments.text }}</p>
       </div>
     </div>
   </div>
-  } -->
+  } }
 </div>
 
 } } @else {

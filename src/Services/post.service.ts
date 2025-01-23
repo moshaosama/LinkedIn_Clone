@@ -82,8 +82,15 @@ export class PostService {
   }
 
   public getPostById(id: number) {
-    this.httpClient.get(`http://localhost:8080/postById/${id}`).subscribe({
-      next: (val) => this.postById.set(val),
-    });
+    this.httpClient
+      .get<PostList>(`http://localhost:8080/postById/${id}`)
+      .subscribe({
+        next: (val) => {
+          this.postById.set(val);
+        },
+      });
+  }
+  get PostById() {
+    return this.postById();
   }
 }

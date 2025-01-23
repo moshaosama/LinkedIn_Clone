@@ -16,9 +16,6 @@ export class PostComponent {
     Comment: new FormControl(''),
   });
 
-  public setActiveComment() {
-    this.ActiveComment.set(!this.ActiveComment());
-  }
   get getPostList() {
     return this.postService.PostsList;
   }
@@ -41,9 +38,10 @@ export class PostComponent {
 
   public getPostById(id: number) {
     this.postService.getPostById(id);
+    this.ActiveComment.set(!this.ActiveComment());
   }
 
   get PostById() {
-    return this.postService.postById();
+    return this.postService.PostById;
   }
 }
