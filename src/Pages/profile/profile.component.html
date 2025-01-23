@@ -1,7 +1,28 @@
 <div
   class="flex max-sm:flex-col max-sm:w-full justify-around max-sm:mx-0 gap-5 mx-96 max-sm:my-0 my-5"
 >
-  <app-profile-detail />
+  <div class="bg-white">
+    <app-profile-detail />
+    <div class="mx-5">
+      <p
+        class="text-blue-500 font-bold hover:underline my-1 cursor-pointer"
+        (click)="openPortfolio()"
+      >
+        Portfolio
+      </p>
+      <p class="text-blue-400 text-sm font-bold">0 Connections</p>
+      <div class="flex max-sm:grid max-sm:grid-cols-2 gap-2 my-2">
+        @for (btns of Btns; track btns.Title) {
+        <button
+          class="p-3 max-sm:p-1 rounded-full font-bold hover:bg-blue-700 transition-all duration-300 bg-blue-500 text-white"
+        >
+          {{ btns.Title }}
+        </button>
+        }
+      </div>
+    </div>
+  </div>
+
   <div>
     <app-recommendation />
   </div>
