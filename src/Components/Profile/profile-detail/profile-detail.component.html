@@ -3,25 +3,35 @@
     <img
       src="1726632725032.jpeg"
       alt="Banner.png"
-      class="rounded-t-md h-{{ Height }} w-full cursor-pointer "
+      class="rounded-t-md w-full cursor-pointer"
       routerLink="/profile"
     />
     <img
       src="WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
       alt="myPhoto.png"
-      class="w-{{ weightImageProfile }} h-{{ heightImageProfile }}
-    absolute top-12 left-6 rounded-full object-cover cursor-pointer"
+      class="absolute top-12 left-6 rounded-full object-cover cursor-pointer"
+      [ngClass]="
+        RouterPath
+          ? 'w-52 max-sm:w-36 h-52 max-sm:h-36'
+          : 'w-16 max-sm:w-24 h-16 max-sm:h-24'
+      "
       routerLink="/profile"
     />
   </div>
   <div
-    class="my-{{ marginY }} mx-5 max-sm:mx-7 hover:underline cursor-pointer"
+    class="mx-5 max-sm:mx-7 hover:underline cursor-pointer"
+    [ngClass]="RouterPath ? 'my-24 max-sm:my-28' : 'my-14 max-sm:my-14'"
     routerLink="/profile"
   >
-    <h1 class="text-{{ fontSizeName }} font-semibold">Mohamed Osama</h1>
-    <p class="text-{{ fontSizeJop }} text-[#464646]">
-      Junior-Front-End developer | GDSC instructor
-    </p>
+    <h1
+      class="font-semibold"
+      [ngClass]="
+        RouterPath ? 'text-3xl max-sm:text-2xl' : 'text-sm max-sm:text-lg'
+      "
+    >
+      Mohamed Osama
+    </h1>
+    <p class="text-[#464646]">Junior-Front-End developer | GDSC instructor</p>
     <p class="text-[#9e9e9e] text-sm">6th of October, Cairo</p>
     <hr class="h-1 my-2" />
   </div>
