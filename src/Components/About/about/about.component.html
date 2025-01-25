@@ -1,0 +1,21 @@
+<div class="bg-white my-2 rounded-md p-2">
+  <div class="flex items-center justify-between mx-5">
+    <div>
+      <h1 class="text-xl font-bold">About</h1>
+    </div>
+    <div class="flex items-center">
+      <ng-content />
+      <img
+        src="Black-thin-line-pen-icon-Graphics-1-1-580x386-removebg-preview.png"
+        alt="Pen.png"
+        class="w-12 hover:bg-[#ddd] p-1 transition-all duration-200 rounded-full cursor-pointer"
+        (click)="changeActiveFormAbout()"
+      />
+    </div>
+  </div>
+  @for (aboutMessages of AboutMessages; track aboutMessages.id) {
+  <div class="mx-5 text-[#575757] font-semibold text-sm">
+    <p>{{ aboutMessages.about }}</p>
+  </div>
+  }
+</div>

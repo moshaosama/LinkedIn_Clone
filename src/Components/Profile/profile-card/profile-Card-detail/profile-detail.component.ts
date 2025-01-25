@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './profile-detail.component.html',
   styleUrl: './profile-detail.component.css',
 })
-export class ProfileDetailComponent {
+export class ProfileCardDetailComponent {
   Router = inject(Router);
 
   get RouterPath(): boolean {

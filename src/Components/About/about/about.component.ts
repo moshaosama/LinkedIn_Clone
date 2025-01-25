@@ -2,15 +2,14 @@ import { Component, inject } from '@angular/core';
 import { AboutService } from '../../../Services/about.service';
 
 @Component({
-  selector: 'app-about-section',
+  selector: 'app-about',
   standalone: true,
   imports: [],
-  templateUrl: './about-section.component.html',
-  styleUrl: './about-section.component.css',
+  templateUrl: './about.component.html',
+  styleUrl: './about.component.css',
 })
-export class AboutSectionComponent {
+export class AboutComponent {
   aboutService = inject(AboutService);
-
   changeActiveFormAbout() {
     this.aboutService.chnageActiveFromAbout();
   }

@@ -1,0 +1,131 @@
+<div
+  class="bg-[rgba(0.5,0.5,0.5,0.5)] fixed left-0 top-0 z-50 w-full h-full flex justify-center items-center"
+>
+  <div class="bg-white rounded-xl w-1/2 max-sm:w-full">
+    <div class="p-2 rounded-md shadow-md">
+      <div class="flex justify-between items-center mx-3">
+        <div>
+          <h1 class="text-xl font-bold">Add experience</h1>
+        </div>
+        <div>
+          <h1
+            class="hover:bg-[#ddd] p-1 text-2xl font-bold transition-all duration-200 rounded-full cursor-pointer"
+            (click)="changeActiveAddExperience()"
+          >
+            X
+          </h1>
+        </div>
+      </div>
+    </div>
+    <div class="overflow-y-scroll h-[40pc] max-sm:h-[25pc]">
+      <div class="m-5">
+        <p class="text-[#8b8b8b]">* Indicates required</p>
+      </div>
+      <form action="">
+        <app-inputs Label="Title*" Type="text" />
+        <p class="mx-4 my-3 flex flex-col gap-1">
+          <Label class="text-[#929292]">Employment type</Label>
+          <select
+            id="Employment_type"
+            class="border-[#ddd] border-[2px] rounded-md p-2"
+          >
+            @for (option of Options_Employment_type; track option.name) {
+            <option value="{{ option.name }}">{{ option.name }}</option>
+            }
+          </select>
+        </p>
+
+        <app-inputs Label="Company or organization*" Type="text" />
+        <p class="mx-4 flex gap-3 my-3">
+          <input type="checkbox" />
+          <span class="text-[#929292] font-bold"
+            >I am currently working in this role</span
+          >
+        </p>
+        <div class="flex flex-col gap-5">
+          <div>
+            <Label class="text-[#929292] mx-4">Start Date*</Label>
+            <div class="flex">
+              <p class="mx-4 flex flex-col gap-1 w-1/2">
+                <select
+                  id="Employment_type"
+                  class="border-[#ddd] border-[2px] rounded-md p-2"
+                >
+                  @for (months of months; track months.name) {
+                  <option value="{{ months.name }}">{{ months.name }}</option>
+                  }
+                </select>
+              </p>
+              <p class="mx-4 flex flex-col gap-1 w-1/2">
+                <select
+                  id="Employment_type"
+                  class="border-[#ddd] border-[2px] rounded-md p-2"
+                >
+                  @for (months of months; track months.name) {
+                  <option value="{{ months.name }}">{{ months.name }}</option>
+                  }
+                </select>
+              </p>
+            </div>
+          </div>
+          <div>
+            <Label class="text-[#929292] mx-4">End Date*</Label>
+            <div class="flex">
+              <p class="mx-4 flex flex-col gap-1 w-1/2">
+                <select
+                  id="Employment_type"
+                  class="border-[#ddd] border-[2px] rounded-md p-2"
+                >
+                  @for (months of months; track months.name) {
+                  <option value="{{ months.name }}">{{ months.name }}</option>
+                  }
+                </select>
+              </p>
+              <p class="mx-4 flex flex-col gap-1 w-1/2">
+                <select
+                  id="Employment_type"
+                  class="border-[#ddd] border-[2px] rounded-md p-2"
+                >
+                  @for (months of months; track months.name) {
+                  <option value="{{ months.name }}">{{ months.name }}</option>
+                  }
+                </select>
+              </p>
+            </div>
+          </div>
+        </div>
+        <app-inputs Label="Location" Type="text" />
+        <p class="mx-4 my-3 flex flex-col gap-1">
+          <Label class="text-[#929292]">Employment type</Label>
+          <select
+            id="Employment_type"
+            class="border-[#ddd] border-[2px] rounded-md p-2"
+          >
+            @for (location of Location_Type; track location.name) {
+            <option value="{{ location.name }}">{{ location.name }}</option>
+            }
+          </select>
+        </p>
+        <app-inputs Label="Description" Type="text" Height="40" />
+        <div class="mx-4 my-4">
+          <h1 class="font-bold text-3xl">Skills</h1>
+          <p class="text-[#929292]">
+            We recommend adding your top 5 used in this role. They’ll also
+            appear in your Skills section.
+          </p>
+        </div>
+        <app-inputs Label="Skills" Type="text" />
+      </form>
+      <hr class="h-4 my-2 mx-3" />
+    </div>
+    <div class="bg-white shadow-md rounded-xl p-3">
+      <div class="my-2 flex justify-end">
+        <button
+          class="bg-blue-500 w-20 h-10 text-white font-bold hover:bg-blue-600 transition-all duration-200 rounded-full"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

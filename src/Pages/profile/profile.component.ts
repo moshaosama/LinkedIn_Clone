@@ -1,44 +1,47 @@
-import { Component } from '@angular/core';
-import { RecommendationComponent } from '../../Components/recommendation/recommendation.component';
-import { ProfileDetailComponent } from '../../Components/Profile/profile-detail/profile-detail.component';
+import { Component, inject } from '@angular/core';
 
-import { CommonModule } from '@angular/common';
+import { AboutService } from '../../Services/about.service';
+import { ExperienceService } from '../../Services/experience.service';
+import { RecommendationComponent } from '../../Components/recommendation/recommendation.component';
+import { RouterOutlet } from '@angular/router';
+import { ExperienceComponent } from '../../Components/experience/experience.component';
 import { AddAboutComponent } from '../../Components/About/add-about/add-about.component';
-import { AboutSectionComponent } from '../../Components/About/about-section/about-section.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
   imports: [
+    RouterOutlet,
     RecommendationComponent,
-    ProfileDetailComponent,
-    CommonModule,
-    AboutSectionComponent,
+    ExperienceComponent,
     AddAboutComponent,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent {
-  Url =
-    'https://drive.google.com/file/d/1ktaC9tfO3FgInH0G5OjJ0QzY99KswqAW/edit';
+  experienceService = inject(ExperienceService);
 
-  openPortfolio() {
-    window.open(this.Url, '_blank', `width=800px,height=800px}`);
+  aboutService = inject(AboutService);
+
+  ////////////
+  // getter
+  get activeFromAbout() {
+    return this.aboutService.activeFormAbout();
   }
 
-  Btns = [
-    {
-      Title: 'Open to',
-    },
-    {
-      Title: 'Add profile section',
-    },
-    {
-      Title: 'enhance profile',
-    },
-    {
-      Title: 'resources',
-    },
-  ];
+  get ActiveExperience() {
+    return this.experienceService.ActiveExperience();
+  }
+
+  //////////
+  // Methods
+
+  changeActiveExperience() {
+    this.experienceService.changeActiveExperience();
+  }
+
+  onClick(name: string) {
+    console.log(name); // This will log the data received from the child
+  }
 }

@@ -79,6 +79,7 @@ export class PostService {
       .subscribe({
         next: (val) => console.log(val),
       });
+    window.location.reload();
   }
 
   public getPostById(id: number) {

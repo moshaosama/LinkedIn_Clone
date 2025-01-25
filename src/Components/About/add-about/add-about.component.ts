@@ -20,10 +20,6 @@ export class AddAboutComponent {
     this.aboutService.createAbout(this.form.controls.About.value!);
   }
 
-  constructor() {
-    console.log(this.form);
-  }
-
   get activeFromAbout() {
     return this.aboutService.activeFormAbout();
   }

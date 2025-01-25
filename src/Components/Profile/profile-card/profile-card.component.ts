@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ProfileDetailComponent } from '../profile-detail/profile-detail.component';
+import { ProfileCardDetailComponent } from './profile-Card-detail/profile-detail.component';
 
 @Component({
   selector: 'app-profile-card',
   standalone: true,
-  imports: [RouterModule, ProfileDetailComponent],
+  imports: [RouterModule, ProfileCardDetailComponent],
   templateUrl: './profile-card.component.html',
   styleUrl: './profile-card.component.css',
 })
