@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class ExperienceService {
-  ActiveExperience = signal(true);
+  ActiveExperience = signal(false);
   ActiveCreatePosition = signal(false);
 
   changeActiveExperience() {
