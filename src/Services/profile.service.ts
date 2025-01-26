@@ -4,6 +4,7 @@ import { inject, Injectable, signal } from '@angular/core';
 interface profileData {
   id: number;
   userName: string;
+  title: string;
   about: {
     id: number;
     title: string;
