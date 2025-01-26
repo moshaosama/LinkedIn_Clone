@@ -36,4 +36,23 @@
     </div>
   </div>
   }
+
+  <div class="m-5 flex flex-col gap-3">
+    @for (profileData of ProfileData; track profileData) { @for (experience of
+    profileData.Experience; track experience.id) {
+    <div>
+      <h1 class="font-bold text-xl">{{ experience.title }}</h1>
+      <p class="text-md text-[#8b8b8b]">
+        {{ experience.company }}-{{ experience.employmentType }}
+      </p>
+      <p class="text-md text-[#8b8b8b]">
+        {{ experience.startData }}-{{ experience.endData }}
+      </p>
+      <p class="text-md text-[#8b8b8b]">
+        {{ experience.location }} - {{ experience.locationType }}
+      </p>
+    </div>
+    <hr class="h-3" />
+    } }
+  </div>
 </div>

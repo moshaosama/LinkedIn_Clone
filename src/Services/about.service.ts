@@ -13,6 +13,7 @@ export class AboutService {
   activeFormAbout = signal(false);
   HttpClient = inject(HttpClient);
   AboutMessages: WritableSignal<About[]> = signal([]);
+  AboutMessagesssss = signal('');
 
   chnageActiveFromAbout() {
     this.activeFormAbout.set(!this.activeFormAbout());
@@ -29,6 +30,9 @@ export class AboutService {
   public createAbout(Title: string) {
     this.HttpClient.post('http://localhost:8080/createAbout', {
       about: Title,
+      profile: {
+        id: '6',
+      },
     }).subscribe({
       next: (val) => console.log(val),
     });

@@ -4,7 +4,6 @@
       <h1 class="text-xl font-bold">About</h1>
     </div>
     <div class="flex items-center">
-      <ng-content />
       <img
         src="Black-thin-line-pen-icon-Graphics-1-1-580x386-removebg-preview.png"
         alt="Pen.png"
@@ -13,9 +12,12 @@
       />
     </div>
   </div>
-  @for (aboutMessages of AboutMessages; track aboutMessages.id) {
-  <div class="mx-5 text-[#575757] font-semibold text-sm">
-    <p>{{ aboutMessages.about }}</p>
-  </div>
+  @for (profileData of ProfileData; track profileData.id) {
+  <p
+    class="mx-5 text-[#929292] text-sm font-bold"
+    style="font-family: sans-serif"
+  >
+    {{ profileData.about.title }}
+  </p>
   }
 </div>

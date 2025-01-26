@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ExperienceService } from '../../Services/experience.service';
+import { ProfileService } from '../../Services/profile.service';
 
 @Component({
   selector: 'app-experience',
@@ -11,6 +12,11 @@ import { ExperienceService } from '../../Services/experience.service';
 })
 export class ExperienceComponent {
   experienceService = inject(ExperienceService);
+  profileSerice = inject(ProfileService);
+
+  get ProfileData() {
+    return this.profileSerice.profileData();
+  }
 
   get ActiveCreatePosition() {
     return this.experienceService.ActiveCreatePosition();

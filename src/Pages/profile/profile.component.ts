@@ -4,24 +4,18 @@ import { AboutService } from '../../Services/about.service';
 import { ExperienceService } from '../../Services/experience.service';
 import { RecommendationComponent } from '../../Components/recommendation/recommendation.component';
 import { RouterOutlet } from '@angular/router';
-import { ExperienceComponent } from '../../Components/experience/experience.component';
-import { AddAboutComponent } from '../../Components/About/add-about/add-about.component';
+import { ProfileService } from '../../Services/profile.service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    RecommendationComponent,
-    ExperienceComponent,
-    AddAboutComponent,
-  ],
+  imports: [RouterOutlet, RecommendationComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
 export class ProfileComponent {
   experienceService = inject(ExperienceService);
-
+  profileSerice = inject(ProfileService);
   aboutService = inject(AboutService);
 
   ////////////
@@ -32,6 +26,10 @@ export class ProfileComponent {
 
   get ActiveExperience() {
     return this.experienceService.ActiveExperience();
+  }
+
+  get ProfileData() {
+    return this.profileSerice.profileData();
   }
 
   //////////

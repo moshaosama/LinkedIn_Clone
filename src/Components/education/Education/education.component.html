@@ -1,0 +1,34 @@
+<div class="bg-white p-3 rounded-md">
+  <div class="flex items-center justify-between mx-5">
+    <div>
+      <h1 class="text-xl font-bold">Education</h1>
+    </div>
+    <div class="flex items-center">
+      <div class="flex flex-col">
+        <img
+          src="pngtree-vector-add-icon-png-image_956621-removebg-preview.png"
+          alt="Add.png"
+          class="w-8 hover:bg-[#ddd] p-1 transition-all duration-200 rounded-full cursor-pointer"
+        />
+      </div>
+      <img
+        src="Black-thin-line-pen-icon-Graphics-1-1-580x386-removebg-preview.png"
+        alt="Pen.png"
+        class="w-12 hover:bg-[#ddd] p-1 transition-all duration-200 rounded-full cursor-pointer"
+        routerLink="details/experience"
+      />
+    </div>
+  </div>
+  @for (profileData of ProfileData; track profileData.id) {
+  <div class="m-5">
+    <h1 class="text-lg font-bold">{{ profileData.education.title }}</h1>
+    <p class="text-md text-[#8b8b8b]">
+      {{ profileData.education.degree }}, {{ profileData.education.department }}
+    </p>
+    <p class="text-md text-[#8b8b8b]">
+      {{ profileData.education.startDate }},
+      {{ profileData.education.endDate }}
+    </p>
+  </div>
+  }
+</div>
