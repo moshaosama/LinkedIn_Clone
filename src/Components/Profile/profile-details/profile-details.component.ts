@@ -7,6 +7,7 @@ import { ExperienceService } from '../../../Services/experience.service';
 import { AddAboutComponent } from '../../About/add-about/add-about.component';
 import { AddExperienceComponent } from '../../experience/add-experience/add-experience.component';
 import { EducationComponent } from '../../education/Education/education.component';
+import { LanguageComponent } from '../../language/language.component';
 
 @Component({
   selector: 'app-profile-details',
@@ -18,6 +19,7 @@ import { EducationComponent } from '../../education/Education/education.componen
     AddAboutComponent,
     AddExperienceComponent,
     EducationComponent,
+    LanguageComponent,
   ],
   templateUrl: './profile-details.component.html',
   styleUrl: './profile-details.component.css',

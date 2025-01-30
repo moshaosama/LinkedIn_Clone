@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { PersonComponent } from './person/person.component';
-import { GameCardComponent } from '../gameCard/gameCard.component';
-import { SponsorComponent } from '../sponsor/sponsor.component';
+import { PersonComponent } from '../person/person.component';
+import { GameCardComponent } from '../../../gameCard/gameCard.component';
+import { SponsorComponent } from '../../../sponsor/sponsor.component';
 
 @Component({
   selector: 'app-recommendation',
