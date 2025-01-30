@@ -15,8 +15,19 @@
         src="Black-thin-line-pen-icon-Graphics-1-1-580x386-removebg-preview.png"
         alt="Pen.png"
         class="w-12 hover:bg-[#ddd] p-1 transition-all duration-200 rounded-full cursor-pointer"
-        
       />
     </div>
+  </div>
+  <div class="mx-5 my-3 flex flex-col gap-5">
+    @for (profileData of ProfileData; track profileData.id) { @for (language of
+    profileData.language; track language.id) {
+    <div>
+      <h1 class="text-md font-bold">{{ language.language }}</h1>
+      <p class="text-[#929292] text-sm">
+        {{ language.proficiency }}
+      </p>
+      <hr />
+    </div>
+    } }
   </div>
 </div>

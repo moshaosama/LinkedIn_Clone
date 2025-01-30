@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { AfterViewInit, inject, Injectable, signal } from '@angular/core';
 
 interface profileData {
   id: number;
@@ -27,6 +27,11 @@ interface profileData {
     degree: string;
     endDate: string;
   };
+  language: {
+    id: number;
+    language: string;
+    proficiency: string;
+  }[];
   password: string;
   email: string;
 }
@@ -41,7 +46,9 @@ export class ProfileService {
     this.httpClient
       .get<profileData[]>('http://localhost:8080/Profiles')
       .subscribe({
-        next: (val) => this.profileData.set(val),
+        next: (val) => {
+          this.profileData.set(val);
+        },
       });
   }
 }
