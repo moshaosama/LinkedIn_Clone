@@ -21,7 +21,7 @@ export class AppComponent {
 
   router = inject(Router);
   public validateUrl() {
-    if (this.router.url == '/') {
+    if (this.router.url == '/' || this.router.url == '/signin') {
       return false;
     } else {
       return true;

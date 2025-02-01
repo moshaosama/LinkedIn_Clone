@@ -4,11 +4,16 @@ import { HomeComponent } from '../Pages/home/home.component';
 import { ProfileComponent } from '../Pages/profile/profile.component';
 import { ProfileDetailsComponent } from '../Components/Profile/profile-details/profile-details.component';
 import { MyExperienceComponent } from '../Components/experience/my-experience/my-experience.component';
+import { LoginComponent } from '../Pages/login/login.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: SignUpComponent,
+  },
+  {
+    path: 'signin',
+    component: LoginComponent,
   },
   {
     path: 'HomePage',

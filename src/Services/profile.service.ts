@@ -42,14 +42,30 @@ interface profileData {
 export class ProfileService {
   httpClient = inject(HttpClient);
   profileData = signal<profileData[]>([]);
+  profilDataasObject = signal<profileData | null>(null);
+  profiles = signal<profileData[]>([]);
   constructor() {
     this.httpClient
-      .get<profileData[]>('http://localhost:8080/profile/2')
+      .get<profileData[]>('http://localhost:8080/profileArray/1') // This is Profile Details like UserName and Jops and other
       .subscribe({
         next: (val) => {
           this.profileData.set(val);
-          console.log(val);
         },
+      });
+
+    this.httpClient
+      .get<profileData>('http://localhost:8080/profile/2')
+      .subscribe({
+        next: (val) => {
+          this.profilDataasObject.set(val);
+          console.log(val.userName);
+        },
+      });
+
+    this.httpClient
+      .get<profileData[]>('http://localhost:8080/Profiles')
+      .subscribe({
+        next: (val) => this.profiles.set(val),
       });
   }
 }

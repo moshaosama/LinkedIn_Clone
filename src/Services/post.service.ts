@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { ProfileService } from './profile.service';
 
 interface PostList {
   id: number;
   title: string;
   likes: Number;
+  userName: string;
   comments: {
     id: number;
     userName: string;
@@ -17,6 +19,7 @@ interface PostList {
 })
 export class PostService {
   httpClient = inject(HttpClient);
+  profileService = inject(ProfileService);
   PostsList: WritableSignal<PostList[]> = signal([]);
   postById: WritableSignal<PostList | {}> = signal({});
 
@@ -32,6 +35,10 @@ export class PostService {
     this.activeCreatePost.set(!this.activeCreatePost());
   }
 
+  get profileDataAsObject() {
+    return this.profileService.profilDataasObject();
+  }
+
   constructor() {
     this.httpClient
       .get<PostList[]>('http://localhost:8080/Posts')
@@ -45,8 +52,9 @@ export class PostService {
     this.httpClient
       .post('http://localhost:8080/createPost', {
         title: Title,
+        userName: this.profileDataAsObject?.userName,
         profile: {
-          id: 1,
+          id: this.profileDataAsObject?.id,
         },
       })
       .subscribe({

@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { PostService } from '../../Services/post.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ProfileService } from '../../Services/profile.service';
 
 @Component({
   selector: 'app-post',
@@ -11,6 +12,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class PostComponent {
   postService = inject(PostService);
+  profileService = inject(ProfileService);
   ActiveComment = signal(false);
   form = new FormGroup({
     Comment: new FormControl(''),
