@@ -45,6 +45,9 @@ export class PostService {
     this.httpClient
       .post('http://localhost:8080/createPost', {
         title: Title,
+        profile: {
+          id: 1,
+        },
       })
       .subscribe({
         next: (data) => {},

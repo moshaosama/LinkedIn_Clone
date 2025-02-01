@@ -15,4 +15,7 @@ export class LanguageComponent {
     return this.profileService.profileData();
   }
 
+  constructor() {
+    console.log(this.ProfileData);
+  }
 }

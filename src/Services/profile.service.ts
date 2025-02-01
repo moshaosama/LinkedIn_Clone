@@ -44,10 +44,11 @@ export class ProfileService {
   profileData = signal<profileData[]>([]);
   constructor() {
     this.httpClient
-      .get<profileData[]>('http://localhost:8080/Profiles')
+      .get<profileData[]>('http://localhost:8080/profile/2')
       .subscribe({
         next: (val) => {
           this.profileData.set(val);
+          console.log(val);
         },
       });
   }
