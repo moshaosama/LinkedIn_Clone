@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { ProfileService } from './profile.service';
-import { LoginService } from './login.service';
 
 interface PostList {
   id: number;
