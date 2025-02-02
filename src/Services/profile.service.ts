@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, inject, Injectable, signal } from '@angular/core';
+import {inject, Injectable, signal } from '@angular/core';
 
 export interface profileData {
   id: number;

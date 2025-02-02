@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ExperienceService } from '../../Services/experience.service';
 import { ProfileService } from '../../Services/profile.service';
