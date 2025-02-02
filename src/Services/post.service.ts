@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal, WritableSignal } from '@angular/core';
 import { ProfileService } from './profile.service';
+import { LoginService } from './login.service';
 
 interface PostList {
   id: number;
@@ -22,6 +23,8 @@ export class PostService {
   profileService = inject(ProfileService);
   PostsList: WritableSignal<PostList[]> = signal([]);
   postById: WritableSignal<PostList | {}> = signal({});
+
+  profileLogin = JSON.parse(window.localStorage.getItem('Profile')!);
 
   activeCreatePost = signal(false);
   public ActiveCreatePost() {
@@ -81,7 +84,7 @@ export class PostService {
   public CreateComment(userName: string, Text: string, id: number) {
     this.httpClient
       .post('http://localhost:8080/createComment', {
-        userName: userName,
+        userName: this.profileLogin.userName,
         text: Text,
         post: {
           id: id,

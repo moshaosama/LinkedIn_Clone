@@ -1,10 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-inputs',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './inputs.component.html',
   styleUrl: './inputs.component.css',
 })

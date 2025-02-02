@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, inject, Injectable, signal } from '@angular/core';
 
-interface profileData {
+export interface profileData {
   id: number;
   userName: string;
   title: string;
@@ -44,9 +44,12 @@ export class ProfileService {
   profileData = signal<profileData[]>([]);
   profilDataasObject = signal<profileData | null>(null);
   profiles = signal<profileData[]>([]);
+  loginProfile = JSON.parse(window.localStorage.getItem('Profile')!);
   constructor() {
     this.httpClient
-      .get<profileData[]>('http://localhost:8080/profileArray/1') // This is Profile Details like UserName and Jops and other
+      .get<profileData[]>(
+        `http://localhost:8080/profileArray/${this.loginProfile.id}`
+      ) // This is Profile Details like UserName and Jops and other
       .subscribe({
         next: (val) => {
           this.profileData.set(val);
@@ -54,7 +57,7 @@ export class ProfileService {
       });
 
     this.httpClient
-      .get<profileData>('http://localhost:8080/profile/2')
+      .get<profileData>(`http://localhost:8080/profile/${this.loginProfile.id}`)
       .subscribe({
         next: (val) => {
           this.profilDataasObject.set(val);

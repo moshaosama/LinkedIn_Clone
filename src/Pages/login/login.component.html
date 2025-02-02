@@ -10,9 +10,27 @@
     >
       <h1 class="text-2xl font-bold">Sign in</h1>
       <p class="text-[#969696]">Stay updated on your professional world</p>
-      <form action="" class="my-6 flex flex-col gap-6">
-        <app-inputs Label="Email or Phone" Type="text" Height="10" />
-        <app-inputs Label="Password" Type="password" Height="10" />
+      <form action="" class="my-6 flex flex-col gap-6" [formGroup]="form">
+        <p class="flex flex-col gap-1">
+          <label for="email" class="text-[#929292]">Email or Phone</label>
+          <input
+            type="email"
+            id="email"
+            class="border-[#ddd] border-[2px] rounded-md p-2 h-10"
+            placeholder="email"
+            formControlName="email"
+          />
+        </p>
+        <p class="flex flex-col gap-1">
+          <label for="email" class="text-[#929292]">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="border-[#ddd] border-[2px] rounded-md p-2 h-10"
+            placeholder="password"
+            formControlName="password"
+          />
+        </p>
       </form>
       <div>
         <p class="text-blue-600 font-bold hover:underline cursor-pointer">
@@ -22,6 +40,7 @@
 
       <button
         class="bg-blue-800 hover:bg-blue-900 transition-all duration-300 p-3 rounded-full my-4 flex justify-center"
+        (click)="onClick()"
       >
         <h1 class="text-white font-bold">Sign in</h1>
       </button>
