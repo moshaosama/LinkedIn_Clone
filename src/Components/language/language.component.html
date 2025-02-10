@@ -19,14 +19,14 @@
     </div>
   </div>
   <div class="mx-5 my-3 flex flex-col gap-5">
-    <!-- @for (language of ProfileData.language; track language.id) {
+    @for (profileData of ProfileData; track profileData.id) { @for (language of
+    profileData.language; track language.id) {
     <div>
       <h1 class="text-md font-bold">{{ language.language }}</h1>
       <p class="text-[#929292] text-sm">
         {{ language.proficiency }}
       </p>
-      <hr />
     </div>
-    } -->
+    } }
   </div>
 </div>

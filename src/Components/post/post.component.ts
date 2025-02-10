@@ -46,4 +46,11 @@ export class PostComponent {
   get PostById() {
     return this.postService.PostById;
   }
+
+  onCLickCommentContent(id: string) {
+    const Element = document.getElementById(id);
+    Element?.style.setProperty('opacity', '100');
+    Element?.style.setProperty('margin-top', '0.75rem');
+    Element?.style.setProperty('margin-bottom', '0.75rem');
+  }
 }

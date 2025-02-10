@@ -9,7 +9,7 @@ export interface profileData {
     id: number;
     title: string;
   };
-  Experience: {
+  experience: {
     id: number;
     employmentType: string;
     location: string;

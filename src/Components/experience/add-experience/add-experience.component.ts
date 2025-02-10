@@ -1,7 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ExperienceService } from '../../../Services/experience.service';
-import { InputsComponent } from "../../Froms/inputs/inputs.component";
-
+import { InputsComponent } from '../../Froms/inputs/inputs.component';
 
 @Component({
   selector: 'app-add-experience',
