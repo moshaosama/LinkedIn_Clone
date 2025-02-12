@@ -1,17 +1,38 @@
-import { Component, inject, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { ExperienceService } from '../../../Services/experience.service';
 import { InputsComponent } from '../../Froms/inputs/inputs.component';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-experience',
   standalone: true,
-  imports: [InputsComponent],
+  imports: [InputsComponent, ReactiveFormsModule],
   templateUrl: './add-experience.component.html',
   styleUrl: './add-experience.component.css',
 })
 export class AddExperienceComponent {
   experienceService = inject(ExperienceService);
   AcitveInputSkills = signal(false);
+  @ViewChild('Employment_type_Value') employment_type_Value!: ElementRef;
+  @ViewChild('Start_Date_Value') start_Date_Value!: ElementRef;
+  @ViewChild('End_Date_Value') end_Date_Value!: ElementRef;
+  @ViewChild('Location_type_Value') location_type_Value!: ElementRef;
+
+  // getSelectName() {
+  //   console.log(this.optionName.nativeElement.value);
+  // }
+
+  form = new FormGroup({
+    title: new FormControl(''),
+    location: new FormControl(''),
+    company: new FormControl(''),
+  });
 
   changeActiveAddExperience() {
     this.experienceService.changeActiveExperience();
@@ -74,4 +95,19 @@ export class AddExperienceComponent {
       name: 'remote',
     },
   ];
+
+  createExperience = () => {
+    this.experienceService.createExperience(
+      this.form.controls.title.value!,
+      this.employment_type_Value.nativeElement.value,
+      this.form.controls.company.value!,
+      this.start_Date_Value.nativeElement.value,
+      this.end_Date_Value.nativeElement.value,
+      this.form.controls.location.value!,
+      this.location_type_Value.nativeElement.value
+    );
+
+    this.experienceService.ActiveExperience.set(false);
+    window.location.reload();
+  };
 }

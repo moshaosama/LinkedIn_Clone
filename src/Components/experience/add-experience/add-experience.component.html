@@ -21,99 +21,93 @@
       <div class="m-5">
         <p class="text-[#8b8b8b]">* Indicates required</p>
       </div>
-      <form action="">
-        <app-inputs Label="Title*" Type="text" />
-        <p class="mx-4 my-3 flex flex-col gap-1">
-          <Label class="text-[#929292]">Employment type</Label>
+      <form action="" [formGroup]="form">
+        <app-inputs Label="Title*" Type="text">
+          <input
+            type="text"
+            id="Title"
+            class="border-[#ddd] border-[2px] rounded-md p-2 h-10"
+            placeholder="Title"
+            name="title"
+            formControlName="title"
+          />
+        </app-inputs>
+        <app-inputs Label="Employment type" Type="">
           <select
-            id="Employment_type"
+            #Employment_type_Value
+            id="employment_type"
             class="border-[#ddd] border-[2px] rounded-md p-2"
           >
             @for (option of Options_Employment_type; track option.name) {
-            <option value="{{ option.name }}">{{ option.name }}</option>
+            <option value="{{ option.name }}">
+              {{ option.name }}
+            </option>
             }
           </select>
-        </p>
+        </app-inputs>
 
-        <app-inputs Label="Company or organization*" Type="text" />
+        <app-inputs Label="Company or organization*" Type="text">
+          <input
+            type="text"
+            id="Company"
+            class="border-[#ddd] border-[2px] rounded-md p-2 h-10"
+            placeholder="Ex: Microsoft"
+            name="company"
+            formControlName="company"
+          />
+        </app-inputs>
         <p class="mx-4 flex gap-3 my-3">
           <input type="checkbox" />
           <span class="text-[#929292] font-bold"
             >I am currently working in this role</span
           >
         </p>
-        <div class="flex flex-col gap-5">
-          <div>
-            <Label class="text-[#929292] mx-4">Start Date*</Label>
-            <div class="flex">
-              <p class="mx-4 flex flex-col gap-1 w-1/2">
-                <select
-                  id="Employment_type"
-                  class="border-[#ddd] border-[2px] rounded-md p-2"
-                >
-                  @for (months of months; track months.name) {
-                  <option value="{{ months.name }}">{{ months.name }}</option>
-                  }
-                </select>
-              </p>
-              <p class="mx-4 flex flex-col gap-1 w-1/2">
-                <select
-                  id="Employment_type"
-                  class="border-[#ddd] border-[2px] rounded-md p-2"
-                >
-                  @for (months of months; track months.name) {
-                  <option value="{{ months.name }}">{{ months.name }}</option>
-                  }
-                </select>
-              </p>
-            </div>
-          </div>
-          <div>
-            <Label class="text-[#929292] mx-4">End Date*</Label>
-            <div class="flex">
-              <p class="mx-4 flex flex-col gap-1 w-1/2">
-                <select
-                  id="Employment_type"
-                  class="border-[#ddd] border-[2px] rounded-md p-2"
-                >
-                  @for (months of months; track months.name) {
-                  <option value="{{ months.name }}">{{ months.name }}</option>
-                  }
-                </select>
-              </p>
-              <p class="mx-4 flex flex-col gap-1 w-1/2">
-                <select
-                  id="Employment_type"
-                  class="border-[#ddd] border-[2px] rounded-md p-2"
-                >
-                  @for (months of months; track months.name) {
-                  <option value="{{ months.name }}">{{ months.name }}</option>
-                  }
-                </select>
-              </p>
-            </div>
-          </div>
-        </div>
-        <app-inputs Label="Location" Type="text" />
-        <p class="mx-4 my-3 flex flex-col gap-1">
-          <Label class="text-[#929292]">Location type</Label>
+
+        <app-inputs Label="Start Date*" Type="">
           <select
-            id="Employment_type"
+            #Start_Date_Value
+            id="start_Date"
+            class="border-[#ddd] border-[2px] rounded-md p-2"
+          >
+            @for (months of months; track months.name) {
+            <option value="{{ months.name }}">{{ months.name }}</option>
+            }
+          </select>
+        </app-inputs>
+
+        <app-inputs Label="End Date*" Type="">
+          <select
+            #End_Date_Value
+            id="end_Date"
+            class="border-[#ddd] border-[2px] rounded-md p-2"
+          >
+            @for (months of months; track months.name) {
+            <option value="{{ months.name }}">{{ months.name }}</option>
+            }
+          </select>
+        </app-inputs>
+
+        <app-inputs Label="Location" Type="text">
+          <input
+            type="text"
+            id="Location"
+            class="border-[#ddd] border-[2px] rounded-md p-2 h-10"
+            placeholder="Location"
+            name="location"
+            formControlName="location"
+          />
+        </app-inputs>
+        <app-inputs Label="Location type" Type="text">
+          <select
+            #Location_type_Value
+            id="location_type"
             class="border-[#ddd] border-[2px] rounded-md p-2"
           >
             @for (location of Location_Type; track location.name) {
             <option value="{{ location.name }}">{{ location.name }}</option>
             }
           </select>
-        </p>
-        <app-inputs Label="Description" Type="text" Height="40" />
-        <div class="mx-4 my-4">
-          <h1 class="font-bold text-3xl">Skills</h1>
-          <p class="text-[#929292]">
-            We recommend adding your top 5 used in this role. They’ll also
-            appear in your Skills section.
-          </p>
-        </div>
+        </app-inputs>
         <app-inputs Label="Skills" Type="text" />
       </form>
       <hr class="h-4 my-2 mx-3" />
@@ -122,6 +116,7 @@
       <div class="my-2 flex justify-end">
         <button
           class="bg-blue-500 w-20 h-10 text-white font-bold hover:bg-blue-600 transition-all duration-200 rounded-full"
+          (click)="createExperience()"
         >
           Save
         </button>

@@ -1,0 +1,62 @@
+<div class="bg-white my-2 rounded-md p-2 relative">
+  <div class="flex items-center justify-between mx-5">
+    <div>
+      <h1 class="text-xl font-bold">Activity</h1>
+      <p class="font-bold text-sm text-blue-400">0 followers</p>
+    </div>
+    <div class="flex items-center">
+      <div class="flex flex-col">
+        <button
+          class="text-blue-400 hover:bg-blue-200 hover:border-[2px] border-[1px] border-solid border-blue-400 px-2 py-1 rounded-full"
+        >
+          Create a Post
+        </button>
+      </div>
+      <img
+        src="Black-thin-line-pen-icon-Graphics-1-1-580x386-removebg-preview.png"
+        alt="Pen.png"
+        class="w-12 hover:bg-[#ddd] p-1 transition-all duration-200 rounded-full cursor-pointer"
+        routerLink="details/experience"
+      />
+    </div>
+  </div>
+
+  <div class="mx-5 my-2 flex gap-2">
+    @for (btnList of BtnList; track btnList.id) {
+    <button
+      (click)="setActiveElement(btnList.id)"
+      class="px-3 py-1 border-[1px] border-solid font-semibold border-black rounded-full"
+      [ngClass]="ActiveElement() == btnList.id ? 'active' : ''"
+    >
+      {{ btnList?.Title }}
+    </button>
+    }
+  </div>
+
+  <div class="grid gap-5 grid-cols-2 mx-5 my-4">
+    @for (postList of PostList.slice(0,2); track postList.id) {
+    <div
+      class="border-[1px] p-4 rounded-md border-[#ddd] border-solid shadow-sm"
+    >
+      <div class="flex items-start gap-2">
+        <div>
+          <img
+            src="/WhatsApp Image 2024-10-20 at 21.44.22_3cca6ed1.jpg"
+            alt="profile.png"
+            class="w-14 h-14 object-cover rounded-full"
+          />
+        </div>
+        <div class="flex flex-col">
+          <h1 class="text-md font-semibold">{{ postList.userName }}</h1>
+          <p class="text-sm text-[#464646]">
+            {{ "Junior-Front-End developer | GDSC instructor".slice(0, 35) }}...
+          </p>
+        </div>
+      </div>
+      <div class="my-2 break-words">
+        <h1>{{ postList.title }}</h1>
+      </div>
+    </div>
+    }
+  </div>
+</div>

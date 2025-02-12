@@ -13,11 +13,11 @@ export class AddAboutComponent {
   aboutService = inject(AboutService);
 
   form = new FormGroup({
-    About: new FormControl(''),
+    title: new FormControl(''),
   });
 
   createAbout() {
-    this.aboutService.createAbout(this.form.controls.About.value!);
+    this.aboutService.createAbout(this.form.controls.title.value!);
   }
 
   get activeFromAbout() {

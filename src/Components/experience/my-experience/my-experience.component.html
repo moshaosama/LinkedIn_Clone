@@ -1,4 +1,6 @@
-<div class="bg-white my-2 rounded-md p-2">
+<div
+  class="bg-white rounded-md p-2 w-[50pc] max-sm:flex max-sm:flex-col max-sm:w-full"
+>
   <div class="flex items-center justify-between mx-5">
     <div class="flex items-center gap-3">
       <h1
@@ -16,5 +18,23 @@
         class="w-8 hover:bg-[#ddd] p-1 transition-all duration-200 rounded-full cursor-pointer"
       />
     </div>
+  </div>
+  <div class="mx-5 flex flex-col gap-4 my-5">
+    @for (profileData of ProfileData; track profileData.id) { @for (experience
+    of profileData.experience; track experience.id) {
+    <div>
+      <h1 class="font-bold text-xl">{{ experience.title }}</h1>
+      <p class="text-md text-[#8b8b8b]">
+        {{ experience.company }}-{{ experience.employmentType }}
+      </p>
+      <p class="text-md text-[#8b8b8b]">
+        {{ experience.startData }}-{{ experience.endData }}
+      </p>
+      <p class="text-md text-[#8b8b8b]">
+        {{ experience.location }} - {{ experience.locationType }}
+      </p>
+    </div>
+    <hr class="h-3" />
+    } }
   </div>
 </div>

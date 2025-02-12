@@ -1,6 +1,6 @@
 @if (getPostList().length > 0) { @for (postList of getPostList(); track
 postList.title) {
-<div class="bg-white p-3 my-2 rounded-md">
+<div class="bg-white p-3 my-2 max-w-[35pc] rounded-md">
   <div class="flex justify-between">
     <div class="flex items-center gap-2">
       <img
@@ -22,7 +22,7 @@ postList.title) {
     </div>
   </div>
   <div class="my-2">
-    <h1>{{ postList.title }}</h1>
+    <h1 class="w-full break-words">{{ postList.title }}</h1>
 
     <!-- This Comment Explan this Post -->
     <div class="flex items-center justify-between">

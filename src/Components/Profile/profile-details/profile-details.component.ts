@@ -8,6 +8,7 @@ import { AddAboutComponent } from '../../About/add-about/add-about.component';
 import { AddExperienceComponent } from '../../experience/add-experience/add-experience.component';
 import { EducationComponent } from '../../education/Education/education.component';
 import { LanguageComponent } from '../../language/language.component';
+import { ActivityComponent } from "../../activity/activity.component";
 
 @Component({
   selector: 'app-profile-details',
@@ -20,7 +21,8 @@ import { LanguageComponent } from '../../language/language.component';
     AddExperienceComponent,
     EducationComponent,
     LanguageComponent,
-  ],
+    ActivityComponent
+],
   templateUrl: './profile-details.component.html',
   styleUrl: './profile-details.component.css',
 })
