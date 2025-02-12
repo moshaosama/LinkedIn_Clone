@@ -9,6 +9,13 @@ export interface profileData {
     id: number;
     title: string;
   };
+  post: {
+    comments: Array<string>;
+    id: number;
+    likes: number;
+    title: string;
+    userName: string;
+  }[];
   experience: {
     id: number;
     employmentType: string;

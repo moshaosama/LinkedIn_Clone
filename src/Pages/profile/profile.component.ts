@@ -4,13 +4,12 @@ import { AboutService } from '../../Services/about.service';
 import { ExperienceService } from '../../Services/experience.service';
 import { RouterOutlet } from '@angular/router';
 import { ProfileService } from '../../Services/profile.service';
-import { RecommendationComponent } from '../../Components/recommendation/recommendationHomePage/recommendation/recommendation.component';
-import { RecommendationProfileComponent } from "../../Components/recommendation/recommendation-profile/recommendation-profile.component";
+import { RecommendationProfileComponent } from '../../Components/recommendation/recommendation-profile/recommendation-profile.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [RouterOutlet, RecommendationComponent, RecommendationProfileComponent],
+  imports: [RouterOutlet, RecommendationProfileComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css',
 })
