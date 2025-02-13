@@ -15,8 +15,12 @@ import { RecommendationProfileComponent } from '../../Components/recommendation/
 })
 export class ProfileComponent {
   experienceService = inject(ExperienceService);
-  profileSerice = inject(ProfileService);
+  profileService = inject(ProfileService);
   aboutService = inject(AboutService);
+
+  ngOnInit() {
+    this.profileService.editViewers(4);
+  }
 
   ////////////
   // getter
@@ -29,7 +33,7 @@ export class ProfileComponent {
   }
 
   get ProfileData() {
-    return this.profileSerice.profileData();
+    return this.profileService.profileData();
   }
 
   //////////

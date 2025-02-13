@@ -14,6 +14,7 @@ export class FormPostComponent {
   @ViewChild('myInput') inputElement!: ElementRef;
   form = new FormGroup({
     Title: new FormControl(''),
+    image: new FormControl(''),
   });
 
   ngAfterViewInit(): void {
@@ -21,7 +22,10 @@ export class FormPostComponent {
   }
 
   public createPost() {
-    this.postService.createPost(this.form.controls.Title.value!);
+    this.postService.createPost(
+      this.form.controls.Title.value!,
+      this.form.controls.image.value!
+    );
   }
   public ChangeStateactive() {
     this.postService.ChangeStateactive();

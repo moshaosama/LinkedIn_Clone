@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+import { ProfileService } from '../../../Services/profile.service';
 import { ProfileCardDetailComponent } from './profile-Card-detail/profile-detail.component';
 
 @Component({
@@ -10,10 +12,12 @@ import { ProfileCardDetailComponent } from './profile-Card-detail/profile-detail
   styleUrl: './profile-card.component.css',
 })
 export class ProfileCardComponent {
+  profileService = inject(ProfileService);
+
   Details = [
     {
       Title: 'Profile Viewers',
-      Number: 53,
+      Number: 1,
     },
     {
       Title: 'Post Permissions',

@@ -14,6 +14,8 @@ export class ProfileCardDetailComponent {
   Router = inject(Router);
   profileSerice = inject(ProfileService);
 
+  
+
   get RouterPath(): boolean {
     if (this.Router.url === '/profile') {
       return true;

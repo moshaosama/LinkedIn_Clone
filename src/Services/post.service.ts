@@ -1,12 +1,13 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal, WritableSignal } from '@angular/core';
-import { ProfileService } from './profile.service';
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable, signal, WritableSignal } from "@angular/core";
+import { ProfileService } from "./profile.service";
 
 interface PostList {
   id: number;
   title: string;
   likes: Number;
   userName: string;
+  image: string;
   comments: {
     id: number;
     userName: string;
@@ -15,7 +16,7 @@ interface PostList {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class PostService {
   httpClient = inject(HttpClient);
@@ -23,7 +24,7 @@ export class PostService {
   PostsList: WritableSignal<PostList[]> = signal([]);
   postById: WritableSignal<PostList | {}> = signal({});
 
-  profileLogin = JSON.parse(window.localStorage.getItem('Profile')!);
+  profileLogin = JSON.parse(window.localStorage.getItem("Profile")!);
 
   activeCreatePost = signal(false);
   public ActiveCreatePost() {
@@ -43,18 +44,19 @@ export class PostService {
 
   constructor() {
     this.httpClient
-      .get<PostList[]>('http://localhost:8080/Posts')
+      .get<PostList[]>("http://localhost:8080/Posts")
 
       .subscribe({
         next: (data) => this.PostsList.set(data),
       });
   }
 
-  public createPost(Title: string) {
+  public createPost(Title: string, image: string) {
     this.httpClient
-      .post('http://localhost:8080/createPost', {
+      .post("http://localhost:8080/createPost", {
         title: Title,
         userName: this.profileDataAsObject?.userName,
+        image: image,
         profile: {
           id: this.profileDataAsObject?.id,
         },
@@ -82,7 +84,7 @@ export class PostService {
 
   public CreateComment(userName: string, Text: string, id: number) {
     this.httpClient
-      .post('http://localhost:8080/createComment', {
+      .post("http://localhost:8080/createComment", {
         userName: this.profileLogin.userName,
         text: Text,
         post: {

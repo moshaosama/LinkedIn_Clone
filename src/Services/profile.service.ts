@@ -5,6 +5,7 @@ export interface profileData {
   id: number;
   userName: string;
   title: string;
+  viewers: number;
   about: {
     id: number;
     title: string;
@@ -52,6 +53,8 @@ export class ProfileService {
   profilDataasObject = signal<profileData | null>(null);
   profiles = signal<profileData[]>([]);
   loginProfile = JSON.parse(window.localStorage.getItem("Profile")!);
+  Viewrs = signal(0);
+
   constructor() {
     this.loginProfile &&
       this.httpClient
@@ -72,7 +75,7 @@ export class ProfileService {
         .subscribe({
           next: (val) => {
             this.profilDataasObject.set(val);
-            console.log(val.userName);
+            this.Viewrs.set(val.viewers);
           },
         });
 
@@ -80,6 +83,14 @@ export class ProfileService {
       .get<profileData[]>("http://localhost:8080/Profiles")
       .subscribe({
         next: (val) => this.profiles.set(val),
+      });
+  }
+
+  editViewers(newView: number) {
+    this.httpClient
+      .put(`http://localhost:8080/editViewers/1/${newView}`, {})
+      .subscribe({
+        next: (val) => console.log(val),
       });
   }
 }

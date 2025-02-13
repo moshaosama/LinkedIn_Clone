@@ -1,3 +1,4 @@
+@for (profiles of Profiles; track profiles.id) {
 <div class="my-3 flex gap-3">
   <div>
     <div class="bg-[#ddd] w-12 h-12 rounded-full"></div>
@@ -5,9 +6,11 @@
   <div>
     <div class="flex flex-col gap-1">
       <div>
-        <h1 class="font-semibold text-sm">Roaa Ibrahim.</h1>
-        <p class="text-sm text-[#464646]">Ui/Ux Developer</p>
-        <p class="text-sm text-[#464646]">Elsadat University</p>
+        <h1 class="font-semibold text-sm">{{ profiles.userName }}</h1>
+        <p class="text-sm text-[#464646]">
+          {{ profiles.title.slice(0, 30) }}...
+        </p>
+        <p class="text-sm text-[#464646]">{{ profiles.education.title }}</p>
       </div>
       <div>
         <button
@@ -20,3 +23,5 @@
     </div>
   </div>
 </div>
+
+}

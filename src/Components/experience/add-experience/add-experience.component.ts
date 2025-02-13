@@ -6,8 +6,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ExperienceService } from '../../../Services/experience.service';
-import { InputsComponent } from '../../Froms/inputs/inputs.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { InputsComponent } from '../../Froms/inputs/inputs.component';
 
 @Component({
   selector: 'app-add-experience',
