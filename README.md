@@ -1,27 +1,47 @@
-# LinkedInClone
+# 🏆 LinkedIn Clone  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.5.
+🚀 **LinkedIn Clone** is a web application built with Angular and Spring Boot, designed to replicate key features of LinkedIn, allowing users to sign up, create posts, and interact with content.  
 
-## Development server
+## 🛠️ Technologies Used  
+- **Frontend**: Angular, RxJS, Tailwind CSS  
+- **Backend**: Java, Spring Boot, Spring Security  
+- **Database**: PostgreSQL  
+- **Authentication**: JWT (JSON Web Token)  
+- **State Management**: RxJS  
+- **Deployment**: Vercel (Frontend) & Render/Heroku (Backend)  
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📌 Features  
+✅ User authentication (sign up & log in)  
+✅ Create, edit, and delete posts  
+✅ Like and comment on posts  
+✅ View user profiles  
+✅ Search for users and posts  
 
-## Code scaffolding
+## 🚀 How to Run Locally  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 1️⃣ Clone the Repository  
+```bash  
+git clone https://github.com/your-username/linkedin-clone.git  
+cd linkedin-clone  
+```
 
-## Build
+### 2️⃣ Install Dependencies  
+#### Frontend  
+```bash  
+cd frontend  
+npm install  
+ng serve  
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+#### Backend  
+```bash  
+cd backend  
+mvn clean install  
+mvn spring-boot:run  
+```
 
-## Running unit tests
+### 3️⃣ Configure Environment Variables  
+Create a `.env` file in the backend and frontend directories with necessary API keys, database credentials, and JWT secret.  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📜 License  
+This project is licensed under the MIT License.  
